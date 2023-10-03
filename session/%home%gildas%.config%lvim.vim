@@ -13,16 +13,13 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/.config/lvim/lua/user/options.lua
-badd +9 config.lua
-badd +34 ~/.config/lvim/lua/user/mappings.lua
-badd +173 ~/.config/lvim/lua/user/plugins.lua
-badd +128 ~/.config/lvim/lua/user/servers.lua
-badd +230 ~/.config/lvim/lua/user/debuggers.lua
-badd +19 lua/user/debuggers_v0.lua
+badd +12 ~/.config/lvim/config.lua
+badd +176 ~/.config/lvim/lua/user/plugins.lua
+badd +1 ~/.config/lvim/lua/user/debugger/init.lua
+badd +17 ~/.config/lvim/lua/user/debugger/languages/js-ts-react.lua
 argglobal
 %argdel
-edit ~/.config/lvim/lua/user/debuggers.lua
+edit ~/.config/lvim/lua/user/debugger/init.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -39,30 +36,33 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-wincmd =
+exe 'vert 1resize ' . ((&columns * 127 + 127) / 254)
+exe 'vert 2resize ' . ((&columns * 126 + 127) / 254)
 argglobal
-balt ~/.config/lvim/lua/user/servers.lua
-let s:l = 230 - ((48 * winheight(0) + 26) / 52)
+balt ~/.config/lvim/config.lua
+let s:l = 1 - ((0 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 230
-normal! 04|
+keepjumps 1
+normal! 039|
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/.config/lvim/lua/user/plugins.lua", ":p")) | buffer ~/.config/lvim/lua/user/plugins.lua | else | edit ~/.config/lvim/lua/user/plugins.lua | endif
+if bufexists(fnamemodify("~/.config/lvim/lua/user/debugger/languages/js-ts-react.lua", ":p")) | buffer ~/.config/lvim/lua/user/debugger/languages/js-ts-react.lua | else | edit ~/.config/lvim/lua/user/debugger/languages/js-ts-react.lua | endif
 if &buftype ==# 'terminal'
-  silent file ~/.config/lvim/lua/user/plugins.lua
+  silent file ~/.config/lvim/lua/user/debugger/languages/js-ts-react.lua
 endif
-balt ~/.config/lvim/lua/user/servers.lua
-let s:l = 173 - ((15 * winheight(0) + 26) / 52)
+balt ~/.config/lvim/lua/user/plugins.lua
+let s:l = 46 - ((42 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 173
-normal! 06|
+keepjumps 46
+normal! 029|
 wincmd w
-wincmd =
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 127 + 127) / 254)
+exe 'vert 2resize ' . ((&columns * 126 + 127) / 254)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -78,7 +78,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
