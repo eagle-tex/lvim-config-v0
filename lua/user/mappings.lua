@@ -49,3 +49,11 @@ lvim.builtin.which_key.mappings["S"] = {
 	l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
 	Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
 }
+
+-- keybindinds for simrats39/symbols-outline.nvim
+lvim.builtin.which_key.mappings["o"] = {
+	name = "Symbols outline",
+	t = { "<cmd>SymbolsOutline<cr>", "Toggle symbols outline" },
+	o = { "<cmd>SymbolsOutlineOpen<cr>", "Open symbols outline" },
+	c = { "<cmd>SymbolsOutlineClose<cr>", "Close symbols outline" },
+}

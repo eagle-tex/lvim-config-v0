@@ -167,6 +167,15 @@ lvim.plugins = {
 		cmd = "Codi",
 	},
 	{
+		"mfussenegger/nvim-dap",
+	},
+	{
+		"microsoft/vscode-js-debug",
+		lazy = true,
+		build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+	},
+	{ "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" } },
+	{
 		"oberblastmeister/neuron.nvim",
 		config = function()
 			require("neuron").setup({
@@ -230,7 +239,12 @@ lvim.plugins = {
 	{ "tanvirtin/monokai.nvim" },
 	{ "Th3Whit3Wolf/one-nvim" },
 	-- vim-surround (mappings to delete, change and add surroundings)
-	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap" },
+		-- config = function()
+		-- end,
+	},
 	{
 		"rmagatti/goto-preview",
 		config = function()
@@ -255,8 +269,14 @@ lvim.plugins = {
 		event = "BufRead",
 	},
 	{
-		"stevearc/dressing.nvim",
+		"simrat39/symbols-outline.nvim",
 		opts = {},
+	},
+	{
+		"stevearc/dressing.nvim",
+		opts = {
+			input = { enabled = false },
+		},
 	},
 	{
 		"tpope/vim-surround",

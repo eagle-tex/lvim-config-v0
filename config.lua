@@ -15,4 +15,6 @@ require("user.builtins")
 
 require("user.servers")
 
+require("user.debuggers")
+
 require("user.plugins")
