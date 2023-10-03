@@ -166,18 +166,15 @@ lvim.plugins = {
 		"metakirby5/codi.vim",
 		cmd = "Codi",
 	},
+	-- 20231003
+	-- https://github.com/LunarVim/starter.lvim/pull/60/files
+	{ "mxsdev/nvim-dap-vscode-js" },
 	{
-		"oberblastmeister/neuron.nvim",
-		config = function()
-			require("neuron").setup({
-				virtual_titles = true,
-				mappings = true,
-				run = nil, -- function to run when in neuron dir
-				neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
-				leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
-			})
-		end,
-	},
+		"microsoft/vscode-js-debug",
+		lazy = true,
+		build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+	}, -- end
+
 	{
 		"nmac427/guess-indent.nvim",
 		config = function()
@@ -199,6 +196,18 @@ lvim.plugins = {
 				css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
 				-- Available modes: foreground, background
 				mode = "background", -- Set the display mode
+			})
+		end,
+	},
+	{
+		"oberblastmeister/neuron.nvim",
+		config = function()
+			require("neuron").setup({
+				virtual_titles = true,
+				mappings = true,
+				run = nil, -- function to run when in neuron dir
+				neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
+				leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
 			})
 		end,
 	},
