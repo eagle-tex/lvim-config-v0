@@ -18,14 +18,15 @@ badd +1 .lintstagedrc.cjs
 badd +22 .prettierrc.cjs
 badd +1 index.html
 badd +1 postcss.config.js
-badd +1 tsconfig.json
+badd +21 tsconfig.json
 badd +31 src/files/test.py
 badd +10 src/files/some-text-file.txt
-badd +3 src/files/toDebug.ts
-badd +30 src/files/script.js
+badd +15 src/files/toDebug.ts
+badd +31 src/files/script.js
+badd +1 src/files/fibonacci.ts
 argglobal
 %argdel
-edit tsconfig.json
+edit src/files/fibonacci.ts
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -45,13 +46,13 @@ set winwidth=1
 exe 'vert 1resize ' . ((&columns * 126 + 127) / 254)
 exe 'vert 2resize ' . ((&columns * 127 + 127) / 254)
 argglobal
-balt src/files/test.py
-let s:l = 52 - ((25 * winheight(0) + 26) / 52)
+balt .eslintrc.cjs
+let s:l = 7 - ((6 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 52
-normal! 019|
+keepjumps 7
+normal! 0
 lcd ~/Code/web/playground/neovim-ide-test
 wincmd w
 argglobal
@@ -59,13 +60,13 @@ if bufexists(fnamemodify("~/Code/web/playground/neovim-ide-test/src/files/toDebu
 if &buftype ==# 'terminal'
   silent file ~/Code/web/playground/neovim-ide-test/src/files/toDebug.ts
 endif
-balt ~/Code/web/playground/neovim-ide-test/src/files/script.js
-let s:l = 3 - ((2 * winheight(0) + 26) / 52)
+balt ~/Code/web/playground/neovim-ide-test/tsconfig.json
+let s:l = 15 - ((14 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 3
-normal! 017|
+keepjumps 15
+normal! 022|
 lcd ~/Code/web/playground/neovim-ide-test
 wincmd w
 2wincmd w
