@@ -36,6 +36,7 @@ lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 lvim.builtin.which_key.mappings["t"] = {
 	name = "Diagnostics",
 	t = { "<cmd>TroubleToggle<cr>", "trouble" },
+	f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
 	w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
 	d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
 	q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
