@@ -76,7 +76,7 @@
   "vim-javascript-snippets": { "branch": "master", "commit": "2499c78947c638905afba12f77526a27cffae2f7" },
   "vim-sneak": { "branch": "master", "commit": "29ec9167d4a609f74c130b46265aa17eb2736e6a" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
-  "vscode-js-debug": { "branch": "main", "commit": "5613912b6bfd3a73f03cd185027263e623147b86" },
+  "vscode-js-debug": { "branch": "main", "commit": "3c0817c2edf5a87b91116e8ade9fd68c7b781560" },
   "which-key.nvim": { "branch": "main", "commit": "4acffc92953a90a790603bfdab7c92319ab167b1" },
   "zephyr-nvim": { "branch": "main", "commit": "7fd86b7164442d3b5ec2c81b2694d040e716b5cf" }
 }
