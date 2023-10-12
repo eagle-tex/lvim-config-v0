@@ -99,6 +99,26 @@ lvim.plugins = {
 	{ "glepnir/zephyr-nvim" },
 	{ "gpanders/editorconfig.nvim" },
 	{ "grvcoelho/vim-javascript-snippets" },
+
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		-- overrides `require("mason-nvim-dap").setup(...)`
+		opts = function(_, opts)
+			-- add more things to the ensure_installed table protecting against community packs modifying it
+			-- opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
+			opts.ensure_installed = {
+				"bash-debug-adapter",
+				"chrome-debug-adapter",
+				"cpptools",
+				"java-debug-adapter",
+				"js",
+				"node-debug2-adapter",
+				"python",
+				"ts",
+			}
+		end,
+	},
+
 	{ "jim-at-jibba/ariake-vim-colors" },
 
 	-- added on 2022/08/26 - required by tsserver
@@ -168,7 +188,12 @@ lvim.plugins = {
 	},
 	{
 		"mfussenegger/nvim-dap",
+		dependencies = {
+			{ "rcarriga/nvim-dap-ui" },
+			{ "theHamsta/nvim-dap-virtual-text", config = true },
+		},
 	},
+	-- { "mxsdev/nvim-dap-vscode-js" },
 	{
 		"microsoft/vscode-js-debug",
 		lazy = true,
@@ -211,12 +236,27 @@ lvim.plugins = {
 			})
 		end,
 	},
+
+	{
+		"oberblastmeister/neuron.nvim",
+		config = function()
+			require("neuron").setup({
+				virtual_titles = true,
+				mappings = true,
+				run = nil, -- function to run when in neuron dir
+				neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
+				leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
+			})
+		end,
+	},
 	{ "olimorris/onedarkpro.nvim" },
 	{ "projekt0n/github-nvim-theme" },
+
 	-- nvim-ts-rainbow (rainbow parentheses)
 	{
 		"p00f/nvim-ts-rainbow",
 	},
+
 	-- { 'rafamadriz/friendly-snippets' },
 	{
 		"ray-x/lsp_signature.nvim",
