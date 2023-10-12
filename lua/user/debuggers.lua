@@ -25,6 +25,7 @@ require("dap-vscode-js").setup({
 		"node-terminal",
 		"pwa-extensionHost",
 	},
+	ensure_installed = { "javascript", "typescript" },
 })
 
 local dap = require("dap")

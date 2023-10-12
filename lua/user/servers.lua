@@ -4,6 +4,14 @@
 lvim.lsp.installer.setup.ensure_installed = {
 	--"sumneko_lua",
 	-- "json",
+	"cssls",
+	"emmet_ls",
+	"html",
+	"jsonls",
+	"lua_ls",
+	"pyright",
+	"tailwindcss",
+	"tsserver",
 }
 -- -- change UI setting of `LspInstallInfo`
 -- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>

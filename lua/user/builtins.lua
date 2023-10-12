@@ -4,6 +4,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true -- false is the default value. changed on 20220702
+lvim.builtin.dap.active = true
 
 lvim.builtin.treesitter.context_commentstring = {
 	enable = true,

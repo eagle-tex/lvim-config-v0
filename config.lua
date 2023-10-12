@@ -5,6 +5,8 @@
 
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
+require("user.plugins")
+
 require("user.general")
 
 require("user.options")
@@ -14,7 +16,5 @@ require("user.mappings")
 require("user.builtins")
 
 require("user.servers")
-
-require("user.plugins")
 
 require("user.debuggers")
