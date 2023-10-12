@@ -100,6 +100,29 @@ lvim.plugins = {
 	{ "gpanders/editorconfig.nvim" },
 	{ "grvcoelho/vim-javascript-snippets" },
 
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	dependencies = {
+	-- 		{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+	-- 	},
+	-- 	opts = {},
+	-- },
+
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	dependencies = {
+	-- 		{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+	-- 	},
+	-- 	opts = function(_, opts)
+	-- 		-- original LazyVim kind icon formatter
+	-- 		local format_kinds = opts.formatting.format
+	-- 		opts.formatting.format = function(entry, item)
+	-- 			format_kinds(entry, item) -- add icons
+	-- 			return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+	-- 		end
+	-- 	end,
+	-- },
+
 	{
 		"jay-babu/mason-nvim-dap.nvim",
 		-- overrides `require("mason-nvim-dap").setup(...)`
@@ -200,18 +223,24 @@ lvim.plugins = {
 		build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
 	},
 	{ "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" } },
-	{
-		"oberblastmeister/neuron.nvim",
-		config = function()
-			require("neuron").setup({
-				virtual_titles = true,
-				mappings = true,
-				run = nil, -- function to run when in neuron dir
-				neuron_dir = "~/neuron", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
-				leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
-			})
-		end,
-	},
+
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	opts = {
+	-- 		servers = {
+	-- 			tailwindcss = {},
+	-- 		},
+	-- 	},
+	-- },
+	-- {
+	-- 	"NvChad/nvim-colorizer.lua",
+	-- 	opts = {
+	-- 		user_default_options = {
+	-- 			tailwind = true,
+	-- 		},
+	-- 	},
+	-- },
+
 	{
 		"nmac427/guess-indent.nvim",
 		config = function()
@@ -221,6 +250,11 @@ lvim.plugins = {
 	-- nvim-colorizer (color highlighter)
 	{
 		"norcalli/nvim-colorizer.lua",
+		opts = {
+			user_default_options = {
+				tailwind = true,
+			},
+		},
 		config = function()
 			require("colorizer").setup({ "css", "scss", "html", "javascript" }, {
 				RGB = true, -- #RGB hex codes
